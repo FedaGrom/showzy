@@ -10,7 +10,6 @@ export default function RootLayout({ children }: LayoutProps) {
   return (
     <html lang="hr">
       <body>
-        <header>JuniorDev Next.js</header>
         {children}
       </body>
     </html>
