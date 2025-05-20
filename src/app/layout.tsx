@@ -1,11 +1,12 @@
 import "./globals.css";
- 
+import type { LayoutProps } from "@/app/types/layout";
+
 export const metadata = {
-  title: 'Showzy',
-  description: 'Pokédex aplikacija u Next.js uz App Router',
+  title: "Showzy",
+  description: "TV Show aplikacija u Next.js uz App Router",
 };
- 
-export default function RootLayout({ children }) {
+
+export default function RootLayout({ children }: LayoutProps) {
   return (
     <html lang="hr">
       <body>
