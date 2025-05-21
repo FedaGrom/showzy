@@ -12,6 +12,16 @@ export const metadata = {
 export default function RootLayout({ children }: LayoutProps) {
   return (
     <html lang="hr">
+      <header className="p-4">
+        <div className="flex justify-center">
+          <Image
+            src="/slike/logo.png"
+            alt="pas"
+            width={500}
+            height={1500}
+            className="rounded-lg shadow-lg"
+          />
+        </div></header>
       <body>
         {children}
       </body>
