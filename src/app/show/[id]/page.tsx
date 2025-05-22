@@ -18,6 +18,7 @@ type CastMember = {
         image: { medium: string; original: string } | null;
     };
     character: {
+        id: number;
         name: string;
     };
 };
@@ -54,7 +55,7 @@ export default async function ShowDetails({ params }: { params: { id: string } }
             <h2 className="text-2xl font-semibold mt-8 mb-4">Cast</h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                 {cast.map((member) => (
-                    <div key={member.person.id} className="text-center">
+                    <div key={`${member.person.id}-${member.character.id}`} className="text-center">
                         <Link href={`/cast/${member.person.id}`} className="cursor-pointer">
                             <img
                                 src={member.person.image?.medium || "/placeholder.png"}
