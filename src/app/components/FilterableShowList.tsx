@@ -1,6 +1,8 @@
 'use client';
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 
 type Show = {
   id: number;
@@ -49,18 +51,26 @@ export default function FilterableShowList() {
 
       <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-10">
         {shows.map((show) => (
-          <li key={show.id} className="border rounded p-2">
-            <h2 className="font-semibold">{show.name}</h2>
-            {show.image && (
-              <img
-                src={show.image.medium}
+          <Link
+            key={show.id}
+            href={`/show/${show.id}`}
+            className="block bg-white rounded-lg shadow-md hover:shadow-xl transition overflow-hidden"
+          >
+            <div className="relative w-full h-[295px]">
+              <Image
+                src={show.image?.medium || "/placeholder.png"}
                 alt={show.name}
-                className="w-full h-auto"
+                fill
+                className="object-cover rounded-lg"
               />
-            )}
-            {filter === "rating" && <p>Ocjena: {show.rating.average ?? "N/A"}</p>}
-            {filter === "newest" && <p>Premijera: {show.premiered ?? "Nepoznato"}</p>}
-          </li>
+            </div>
+            <div className="p-2">
+              <h3 className="text-lg font-semibold text-black">{show.name}</h3>
+              <p className="text-sm text-gray-600">
+                Ocjena: {show.rating.average ?? "N/A"}
+              </p>
+            </div>
+          </Link>
         ))}
       </ul>
     </div>
