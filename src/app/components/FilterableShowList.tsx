@@ -45,8 +45,8 @@ export default function FilterableShowList() {
         onChange={(e) => setFilter(e.target.value as "rating" | "newest")}
         className="mb-4 p-2 border rounded bg-black text-white"
       >
-        <option value="rating">Najbolje ocijenjene</option>
-        <option value="newest">Najnovije</option>
+        <option value="rating">Best rating</option>
+        <option value="newest">Newest</option>
       </select>
 
       <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-10">
@@ -67,7 +67,7 @@ export default function FilterableShowList() {
             <div className="p-2">
               <h3 className="text-lg font-semibold text-black">{show.name}</h3>
               <p className="text-sm text-gray-600">
-                Ocjena: {show.rating.average ?? "N/A"}
+                Rating: {show.rating.average ?? "N/A"}
               </p>
             </div>
           </Link>
