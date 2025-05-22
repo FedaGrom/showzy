@@ -30,7 +30,7 @@ export default function RootLayout({ children }: LayoutProps) {
           <div className="flex justify-center sm:justify-end">
             <Image
               src="/slike/bejbi.png"
-              alt="pas"
+              alt="Beautiful dog"
               width={200}
               height={200}
               className="rounded-lg shadow-lg"

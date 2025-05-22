@@ -41,10 +41,10 @@ export default function FilterableShowList() {
       <select
         value={filter}
         onChange={(e) => setFilter(e.target.value as "rating" | "newest")}
-        className="mb-4 p-2 border rounded"
+        className="mb-4 p-2 border rounded bg-black text-white"
       >
-        <option value="rating" className="background-color-black text-white">Najbolje ocijenjene</option>
-        <option value="newest" className="background-color-black text-white">Najnovije</option>
+        <option value="rating">Najbolje ocijenjene</option>
+        <option value="newest">Najnovije</option>
       </select>
 
       <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-10">
