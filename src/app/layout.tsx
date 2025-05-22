@@ -15,7 +15,7 @@ export const metadata = {
 export default function RootLayout({ children }: LayoutProps) {
   return (
     <html lang="hr">
-      <body>
+      <body className="min-h-screen flex flex-col">
         <header className="bg-zinc-900 px-6 py-4 flex items-center justify-between sticky top-0 z-50 shadow-md">
           <div className="flex items-center gap-6">
 
