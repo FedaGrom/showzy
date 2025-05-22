@@ -1,7 +1,10 @@
 import "./globals.css";
 import Image from "next/image";
+import Link from "next/link";
 import type { LayoutProps } from "@/app/types/layout";
+import BackButton from "./components/BackButton";
 import { FaInstagram, FaFacebook, FaGithub, FaInfoCircle } from "react-icons/fa";
+import { AiFillHome } from "react-icons/ai";
 
 
 export const metadata = {
@@ -13,16 +16,26 @@ export default function RootLayout({ children }: LayoutProps) {
   return (
     <html lang="hr">
       <body>
-        <header className="p-4">
-          <div className="flex justify-center">
-            <Image
-              src="/slike/logo.png"
-              alt="pas"
-              width={500}
-              height={1500}
-              className="rounded-lg shadow-lg"
-            />
-          </div></header>
+        <header className="bg-zinc-900 px-6 py-4 flex items-center justify-between sticky top-0 z-50 shadow-md">
+          <div className="flex items-center gap-6">
+
+            <Link href="/">
+              <Image
+                src="/slike/logo.png"
+                alt="Logo"
+                width={200}
+                height={80}
+                className="h-20 w-auto object-contain rounded-sm"
+              />
+            </Link>
+
+            <Link href="/" className="text-white hover:text-gray-300">
+              <AiFillHome size={28} />
+            </Link>
+
+            <BackButton />
+          </div>
+        </header>
         {children}
         <footer className="bg-gray-100 py-10 px-4">
           <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8 items-center">

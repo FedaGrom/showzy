@@ -3,7 +3,7 @@ import FilterableShowList from "@/app/components/FilterableShowList";
 export default function Home() {
   return (
     <main className="min-h-screen p-8">
-      <h1 className="text-2xl font-bold mb-4">TV serije</h1>
+      <h1 className="text-2xl font-bold mb-4">TV shows</h1>
       <FilterableShowList />
     </main>
   );
