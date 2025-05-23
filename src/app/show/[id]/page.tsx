@@ -23,6 +23,14 @@ type CastMember = {
     };
 };
 
+type Episode = {
+    id: number;
+    name: string;
+    season: number;
+    number: number;
+    airdate: string;
+};
+
 export default async function ShowDetails({ params }: { params: { id: string } }) {
     const res = await fetch(`https://api.tvmaze.com/shows/${params.id}`);
     if (!res.ok) return notFound();
@@ -30,6 +38,9 @@ export default async function ShowDetails({ params }: { params: { id: string } }
 
     const castRes = await fetch(`https://api.tvmaze.com/shows/${params.id}/cast`);
     const cast: CastMember[] = await castRes.json();
+
+    const episodesRes = await fetch(`https://api.tvmaze.com/shows/${params.id}/episodes`);
+    const episodes: Episode[] = await episodesRes.json();
 
     return (
         <div className="max-w-3xl mx-auto p-6">
@@ -68,6 +79,21 @@ export default async function ShowDetails({ params }: { params: { id: string } }
                     </div>
                 ))}
             </div>
+            {episodes.length > 0 && (
+                <>
+                    <h2 className="text-2xl font-semibold mt-10 mb-4">Episodes</h2>
+                    <ul className="space-y-2">
+                        {episodes.map((ep) => (
+                            <li key={ep.id} className="border-b pb-2">
+                                <Link href={`/episode/${ep.id}`} className="hover:underline text-blue-500">
+                                    <strong>Season {ep.season}, Episode {ep.number}:</strong> {ep.name}
+                                </Link>
+                                <span className="text-gray-500 text-sm ml-2">({ep.airdate})</span>
+                            </li>
+                        ))}
+                    </ul>
+                </>
+            )}
         </div>
     );
 }
