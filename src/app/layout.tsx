@@ -36,7 +36,7 @@ export default function RootLayout({ children }: LayoutProps) {
             <BackButton />
           </div>
         </header>
-        {children}
+        <main className="flex-1">{children}</main>
         <footer className="bg-gray-100 py-10 px-4">
           <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8 items-center">
             <div className="flex justify-center sm:justify-end">
