@@ -32,8 +32,6 @@ export default function RootLayout({ children }: LayoutProps) {
             <Link href="/" className="text-white hover:text-gray-300">
               <AiFillHome size={28} />
             </Link>
-
-            <BackButton />
           </div>
         </header>
         <main className="flex-1">{children}</main>

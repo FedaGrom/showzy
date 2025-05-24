@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import BackButton from "@/app/components/BackButton";
 
 type Episode = {
   id: number;
@@ -18,6 +19,8 @@ export default async function EpisodePage({ params }: { params: { id: string } }
 
   return (
     <div className="max-w-2xl mx-auto p-6">
+      <BackButton />
+      <br />
       <h1 className="text-3xl font-bold mb-4">{episode.name}</h1>
 
       {episode.image && (
