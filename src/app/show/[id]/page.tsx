@@ -46,6 +46,7 @@ export default async function ShowDetails({ params }: { params: { id: string } }
     return (
         <div className="max-w-7xl mx-auto p-6">
             <BackButton />
+            <br />
             <h1 className="text-4xl font-bold mb-8 text-center">{show.name}</h1>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
@@ -75,7 +76,7 @@ export default async function ShowDetails({ params }: { params: { id: string } }
                     <ul className="space-y-3 max-h-[600px] overflow-y-auto pr-2">
                         {episodes.map((ep) => (
                             <li key={ep.id} className="border-b pb-2">
-                                <Link href={`/episode/${ep.id}`} className="hover:underline text-blue-600">
+                                <Link href={`/episode/${ep.id}`} className="hover:underline text-lime-600">
                                     <strong>Season {ep.season}, Ep {ep.number}:</strong> {ep.name}
                                 </Link>
                                 <span className="text-gray-500 text-sm ml-2">({ep.airdate})</span>

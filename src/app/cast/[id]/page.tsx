@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import BackButton from "@/app/components/BackButton";
 
 type Person = {
   id: number;
@@ -35,6 +36,8 @@ export default async function CastPage({ params }: { params: { id: string } }) {
 
   return (
     <div className="max-w-3xl mx-auto p-6">
+      <BackButton />
+      <br />
       <h1 className="text-3xl font-bold mb-4">{person.name}</h1>
       {person.image && (
         <img
@@ -44,13 +47,13 @@ export default async function CastPage({ params }: { params: { id: string } }) {
         />
       )}
       <p className="mb-2">
-        <strong>Birthday:</strong> {person.birthday ?? "Nepoznato"}
+        <strong>Birthday:</strong> {person.birthday ?? "uknown"}
       </p>
       <p className="mb-2">
-        <strong>Country:</strong> {person.country?.name ?? "Nepoznato"}
+        <strong>Country:</strong> {person.country?.name ?? "uknown"}
       </p>
       <p className="mb-2">
-        <strong>Gender:</strong> {person.gender ?? "Nepoznato"}
+        <strong>Gender:</strong> {person.gender ?? "uknow"}
       </p>
 
       <h2 className="mt-8 text-2xl font-semibold mb-4">TV shows they appeared in:</h2>
