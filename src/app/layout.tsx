@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { LayoutProps } from "@/app/types/layout";
 import BackButton from "./components/BackButton";
-import { FaInstagram, FaFacebook, FaGithub, FaInfoCircle } from "react-icons/fa";
+import { FaInstagram, FaFacebook, FaGithub, FaInfoCircle, FaSearch} from "react-icons/fa";
 import { AiFillHome } from "react-icons/ai";
 
 
@@ -32,6 +32,10 @@ export default function RootLayout({ children }: LayoutProps) {
             <Link href="/" className="text-white hover:text-gray-300">
               <AiFillHome size={28} />
             </Link>
+            <Link href="/search" className="text-white hover:text-gray-300">
+              <FaSearch className="text-xl" />
+            </Link>
+
           </div>
         </header>
         <main className="flex-1">{children}</main>

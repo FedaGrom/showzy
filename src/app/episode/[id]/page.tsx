@@ -25,7 +25,7 @@ export default async function EpisodePage({ params }: { params: { id: string } }
 
       {episode.image && (
         <img
-          src={episode.image?.original || "/placeholder.png"}
+          src={episode.image?.original || "/slike/placeholder.png"}
           alt={episode.name}
           className="mb-4 rounded shadow-md w-full max-h-[500px] object-cover"
         />

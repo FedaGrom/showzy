@@ -65,7 +65,7 @@ export default async function CastPage({ params }: { params: { id: string } }) {
             className="block text-center cursor-pointer"
           >
             <img
-              src={_embedded.show.image?.medium || "/placeholder.png"}
+              src={_embedded.show.image?.medium || "/slike/placeholder.png"}
               alt={_embedded.show.name}
               className="mx-auto rounded-lg shadow-md"
             />

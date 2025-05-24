@@ -97,7 +97,7 @@ export default async function ShowDetails({ params }: { params: { id: string } }
                             className="min-w-[150px] text-center hover:bg-zinc-900 p-3 rounded transition"
                         >
                             <img
-                                src={member.person.image?.medium || "/placeholder.png"}
+                                src={member.person.image?.medium || "/slike/placeholder.png"}
                                 alt={member.person.name}
                                 className="rounded-lg shadow-md w-full h-auto mb-2"
                             />

@@ -58,7 +58,7 @@ export default function FilterableShowList() {
           >
             <div className="relative w-full h-[295px]">
               <Image
-                src={show.image?.medium || "/placeholder.png"}
+                src={show.image?.medium || "/slike/placeholder.png"}
                 alt={show.name}
                 fill
                 className="object-cover rounded-lg"
