@@ -1,3 +1,5 @@
+Showzy - Final project for Edit CodeSchool course JuniorDev Next.js using TV Maze API.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
