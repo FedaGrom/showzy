@@ -8,6 +8,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import BackButton from "@/app/components/BackButton";
 import FavoriteButton from "@/app/components/FavoriteButton";
+import Image from "next/image";
 
 type Show = {
     id: number;
@@ -53,7 +54,7 @@ export default async function ShowDetails({ params }: { params: { id: string } }
     return (
         <div className="max-w-7xl mx-auto p-6">
             <BackButton />
-            
+
             <br />
             <h1 className="text-4xl font-bold mb-8 text-center">{show.name}</h1>
             <FavoriteButton showId={show.id} />
@@ -62,9 +63,12 @@ export default async function ShowDetails({ params }: { params: { id: string } }
                 {/* LEFT: poster serije i osnovne informacije (ocjena, žanr...) */}
                 <div>
                     {show.image && (
-                        <img
+                        <Image
                             src={show.image.original}
                             alt={show.name}
+                            width={800}
+                            height={450}
+                            sizes="(max-width: 768px) 100vw, 800px"
                             className="rounded-lg shadow-md w-full object-cover mb-4"
                         />
                     )}
@@ -105,10 +109,13 @@ export default async function ShowDetails({ params }: { params: { id: string } }
                             href={`/cast/${member.person.id}`}
                             className="min-w-[150px] text-center hover:bg-zinc-900 p-3 rounded transition"
                         >
-                            <img
+                            <Image
                                 src={member.person.image?.medium || "/slike/placeholder.png"}
                                 alt={member.person.name}
-                                className="rounded-lg shadow-md w-full h-auto mb-2"
+                                width={210}
+                                height={295}
+                                sizes="(max-width: 768px) 100vw, 210px"
+                                className="rounded-lg shadow-md w-full h-auto mb-2 object-cover"
                             />
                             <p className="font-semibold">{member.person.name}</p>
                             <p className="text-sm text-gray-400">as {member.character.name}</p>

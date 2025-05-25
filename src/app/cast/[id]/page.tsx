@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import BackButton from "@/app/components/BackButton";
+import Image from "next/image";
 
 type Person = {
   id: number;
@@ -40,9 +41,12 @@ export default async function CastPage({ params }: { params: { id: string } }) {
       <br />
       <h1 className="text-3xl font-bold mb-4">{person.name}</h1>
       {person.image && (
-        <img
+        <Image
           src={person.image.original}
           alt={person.name}
+          width={500}
+          height={700}
+          sizes="(max-width: 768px) 100vw, 500px"
           className="mb-4 rounded shadow-md w-full max-h-[600px] object-cover"
         />
       )}
@@ -64,10 +68,13 @@ export default async function CastPage({ params }: { params: { id: string } }) {
             href={`/show/${_embedded.show.id}`}
             className="block text-center cursor-pointer"
           >
-            <img
+            <Image
               src={_embedded.show.image?.medium || "/slike/placeholder.png"}
               alt={_embedded.show.name}
-              className="mx-auto rounded-lg shadow-md"
+              width={210}
+              height={295}
+              sizes="(max-width: 768px) 100vw, 210px"
+              className="mx-auto rounded-lg shadow-md object-cover"
             />
             <p className="mt-2 font-semibold">{_embedded.show.name}</p>
           </Link>
