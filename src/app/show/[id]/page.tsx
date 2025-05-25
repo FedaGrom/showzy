@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import BackButton from "@/app/components/BackButton";
+import FavoriteButton from "@/app/components/FavoriteButton";
 
 type Show = {
     id: number;
@@ -46,8 +47,10 @@ export default async function ShowDetails({ params }: { params: { id: string } }
     return (
         <div className="max-w-7xl mx-auto p-6">
             <BackButton />
+            
             <br />
             <h1 className="text-4xl font-bold mb-8 text-center">{show.name}</h1>
+            <FavoriteButton showId={show.id} />
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
                 {/* LEFT: Show Info */}
