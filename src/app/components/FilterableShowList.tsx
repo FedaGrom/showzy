@@ -1,6 +1,6 @@
 // Komponenta FilterableShowList dohvaća listu serija s TVmaze API-ja i omogućuje
 // filtriranje po kriterijima: najbolje ocijenjene ili najnovije serije.
-// Prikazuje prvih 20 rezultata, sortiranih prema odabranom kriteriju.
+// Prikazuje prvih 20 rezultata, a korisnik može klikom na gumb učitati još serija.
 
 // "use client" označava da se ova komponenta renderira na klijentskoj strani,
 // jer koristi React hookove poput useState i useEffect.
@@ -19,8 +19,9 @@ type Show = {
 };
 
 export default function FilterableShowList() {
-  const [shows, setShows] = useState<Show[]>([]);
+  const [allShows, setAllShows] = useState<Show[]>([]); // Sve dohvaćene serije
   const [filter, setFilter] = useState<"rating" | "newest">("rating"); // Trenutno odabrani filter
+  const [visibleCount, setVisibleCount] = useState(20); // Koliko serija trenutno prikazati
 
   // useEffect se poziva kad se promijeni vrijednost filtera (ovisnost u [filter])
   useEffect(() => {
@@ -38,16 +39,19 @@ export default function FilterableShowList() {
             return (b.rating.average || 0) - (a.rating.average || 0);
           } else {
             // Sortiraj po datumu premijere (najnovija prva)
-            return new Date(a.premiered || "").getTime() - new Date(b.premiered || "").getTime();
+            return new Date(b.premiered || "").getTime() - new Date(a.premiered || "").getTime();
           }
-        })
-        .slice(0, 20); // Prikaz samo prvih 20 rezultata
+        });
 
-      setShows(sorted); // Ažuriraj stanje s filtriranim rezultatima
+      setAllShows(sorted); // Spremi sve sortirane serije
+      setVisibleCount(20); // Resetiraj broj prikazanih serija na 20 pri promjeni filtera
     }
 
     fetchShows();
   }, [filter]);
+
+  // Izreži listu da prikazuje samo prvih 'visibleCount' serija
+  const visibleShows = allShows.slice(0, visibleCount);
 
   return (
     <div>
@@ -63,7 +67,7 @@ export default function FilterableShowList() {
 
       {/* Prikaz serija u gridu */}
       <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-10">
-        {shows.map((show) => (
+        {visibleShows.map((show) => (
           <Link
             key={show.id}
             href={`/show/${show.id}`}
@@ -87,6 +91,19 @@ export default function FilterableShowList() {
           </Link>
         ))}
       </ul>
+
+      {/* Gumb za učitavanje više showova – prikazuje se samo ako ima još za učitati */}
+      {visibleCount < allShows.length && allShows.length > 0 && (
+        <div className="flex justify-center mt-6">
+          <button
+            onClick={() => setVisibleCount((prev) => prev + 20)}
+            className="px-6 py-2 bg-amber-400 text-black font-semibold rounded hover:bg-amber-500 transition"
+          >
+            Show more
+          </button>
+        </div>
+      )}
+
     </div>
   );
 }
