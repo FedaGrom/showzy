@@ -79,6 +79,7 @@ export default function FilterableShowList() {
                 src={show.image?.medium || "/slike/placeholder.png"}
                 alt={show.name}
                 fill
+                sizes="(min-width: 1024px) 10%, (min-width: 640px) 50%, 100%"
                 className="object-cover rounded-lg"
               />
             </div>
