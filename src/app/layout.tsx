@@ -1,11 +1,16 @@
+// Ovo je globalna layout stranica koja sadrži:
+// 1. stilizirani header,
+// 2. "children" koja se nalaze unutar main-a koji je unutar stiliziranog body
+// 3. stilizirani footer.
+
 import "./globals.css";
 import Image from "next/image";
 import Link from "next/link";
 import type { LayoutProps } from "@/app/types/layout";
-import { FaInstagram, FaFacebook, FaGithub, FaInfoCircle, FaSearch, FaStar, FaRegStar} from "react-icons/fa";
+import { FaInstagram, FaFacebook, FaGithub, FaInfoCircle, FaSearch, FaStar} from "react-icons/fa";
 import { AiFillHome } from "react-icons/ai";
 
-
+// Postavljanje metapodataka za SEO i pretraživače
 export const metadata = {
   title: "Showzy",
   description: "TV Show aplikacija u Next.js uz App Router",

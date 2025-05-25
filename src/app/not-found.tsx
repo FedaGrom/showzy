@@ -1,3 +1,5 @@
+// Obo je globalna not-found stranica.
+
 import Link from "next/link";
 
 export default function NotFound() {

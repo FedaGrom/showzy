@@ -1,3 +1,6 @@
+// Ova stranica je početna (Home) stranica aplikacije i prikazuje popis svih serija.
+// Služi kao ulazna točka za pregledavanje dostupnih TV emisija.
+
 import FilterableShowList from "@/app/components/FilterableShowList";
 
 export default function Home() {

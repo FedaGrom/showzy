@@ -1,3 +1,7 @@
+// Ovo je komponenta koja se koristi kako bi se korisnik vratio na prethodnu stranicu.
+
+// "use client" označava da se ova komponenta renderira na klijentskoj strani,
+// jer koristi React hookove poput useState i useEffect.
 "use client";
 
 import { FaArrowLeft } from "react-icons/fa";

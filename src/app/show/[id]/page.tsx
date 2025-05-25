@@ -1,3 +1,9 @@
+// Ovo je stranica za prikaz serija sa određenim id-om.
+// Serija se prikazuje u tri dijela:
+// - sa lijeve strane - poster serije i osnovne informacije (ocjena, žanr...)
+// - sa desne strane - popis epizoda s linkovima na te epizode
+// - ispod svega - popis glumaca s linkovima na te glumce
+
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import BackButton from "@/app/components/BackButton";
@@ -53,7 +59,7 @@ export default async function ShowDetails({ params }: { params: { id: string } }
             <FavoriteButton showId={show.id} />
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                {/* LEFT: Show Info */}
+                {/* LEFT: poster serije i osnovne informacije (ocjena, žanr...) */}
                 <div>
                     {show.image && (
                         <img
@@ -73,7 +79,7 @@ export default async function ShowDetails({ params }: { params: { id: string } }
                     />
                 </div>
 
-                {/* RIGHT: Episodes */}
+                {/* RIGHT: popis epizoda s linkovima na te epizode */}
                 <div>
                     <h2 className="text-2xl font-semibold mb-4">Episodes</h2>
                     <ul className="space-y-3 max-h-[600px] overflow-y-auto pr-2">
@@ -89,7 +95,7 @@ export default async function ShowDetails({ params }: { params: { id: string } }
                 </div>
             </div>
 
-            {/* CAST CAROUSEL */}
+            {/* CAST CAROUSEL - popis glumaca s linkovima na te glumce */}
             <h2 className="text-2xl font-semibold mt-12 mb-4">Cast</h2>
             <div className="overflow-x-auto">
                 <div className="flex gap-6">
